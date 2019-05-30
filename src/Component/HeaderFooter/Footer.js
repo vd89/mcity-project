@@ -4,7 +4,7 @@ import { CityLogo } from '../ui/icons'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className = 'bck_blue'>
       <div className="footer_logo">
         <CityLogo
           width='70px'
@@ -14,7 +14,7 @@ const Footer = () => {
         />
       </div>
       <div className="footer_discl">
-        Maschester City 2019. All right reserved
+        Manchester City 2019. All right reserved
         </div>
     </footer>
   )

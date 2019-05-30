@@ -8,6 +8,7 @@ export default function Loyout(props) {
       <Header/>
 
       {props.children} 
+      
       <Footer/>
     </div>
   )
