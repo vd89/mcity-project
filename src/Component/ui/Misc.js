@@ -1,15 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const Tag = (props) => {
   const template = <div
-    style = {{
+    style={{
       color: props.color,
       background: props.bck,
-      fontSize:props.size,
+      fontSize: props.size,
       padding: '5px 10px',
       display: 'inline-block',
-      fontFamily:'Righteous',
+      fontFamily: 'Righteous',
       ...props.add
     }}
   >
@@ -33,16 +33,30 @@ export const firebaseLoop = (snapshot) => {
       id: childSnapshot.key
     })
   });
-  
-  return data 
+
+  return data
 }
 
 export const reverseArray = (actureArray) => {
   let reverseArray = []
-  for ( let i = actureArray.length-1; i>=0; i-- ) {
+  for (let i = actureArray.length - 1; i >= 0; i--) {
     reverseArray.push(actureArray[i])
   }
 
   return reverseArray
 }
 
+
+export const validate = (element) => {
+  let error = [true, '']
+  if (element.validate.email) {
+    const valid = /\S+@\S+\.\S+/.test(element.value);
+    const message = `${!valid ? 'Must be a Valid email' : ''}`
+    error = !valid ? [valid, message] : error
+  } if (element.validate.required) {
+    const valid = element.value.trim() !== ''
+    const message = `${!valid ? 'This field is requited' : ''}`
+    error = !valid ? [valid, message] : error
+  }
+  return error
+}

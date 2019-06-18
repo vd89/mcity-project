@@ -49,9 +49,9 @@ export default class HomeCard extends Component {
               bottom
             }}>
               <PlayerCard
-                number="30"
+                numer="30"
                 name="Nicolas"
-                lastname="Otamendi"
+                lastName="Otamendi"
                 bck={Otamendi}
               />
             </div>
