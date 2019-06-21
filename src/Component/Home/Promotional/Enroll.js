@@ -15,7 +15,7 @@ export default class Enroll extends Component {
         config: {
           name: 'email_input',
           type: 'email',
-          placeholder: 'Enter Your email'
+          placeholder: 'Enter your email'
         },
         validation: {
           required: true,
@@ -25,18 +25,20 @@ export default class Enroll extends Component {
         validationMessage: ''
       }
     }
+
   }
 
   updateForm(element) {
     const newFormdata = { ...this.state.formdata }
     const newElement = { ...newFormdata[element.id] }
 
-    newElement.value = element.event.target.value
+    newElement.value = element.event.target.value;
 
     let validData = validate(newElement)
-    newElement.valid = validData[0]
+    newElement.valid = validData[0];
     newElement.validationMessage = validData[1]
-    newFormdata[element.id] = newElement
+
+    newFormdata[element.id] = newElement;
 
     this.setState({
       formError: false,
@@ -44,20 +46,23 @@ export default class Enroll extends Component {
     })
   }
 
-  resetFormSuccess() {
+  resetFormSuccess(type) {
     const newFormdata = { ...this.state.formdata }
+
     for (let key in newFormdata) {
-      newFormdata[key].value = ''
-      newFormdata[key].valid = false
-      newFormdata[key].validationMessage = ''
+      newFormdata[key].value = '';
+      newFormdata[key].valid = false;
+      newFormdata[key].validationMessage = '';
     }
+
     this.setState({
       formError: false,
       formdata: newFormdata,
-      formSuccess: '' ? 'Congratulations' : 'Already on the database'
-    })
-    this.successMessage()
+      formSuccess: type ? 'Congratulations' : 'Already on the database'
+    });
+    this.successMessage();
   }
+
   successMessage() {
     setTimeout(() => {
       this.setState({
@@ -65,24 +70,29 @@ export default class Enroll extends Component {
       })
     }, 2000)
   }
+
   submitForm(event) {
-    event.preventDefault()
-    let dataToSubmit = {}
-    let formIsValid = true
+    event.preventDefault();
+
+    let dataToSubmit = {};
+    let formIsValid = true;
 
     for (let key in this.state.formdata) {
-      dataToSubmit[key] = this.state.formdata[key].value
-      formIsValid = this.state.formdata[key].valid && formIsValid
+      dataToSubmit[key] = this.state.formdata[key].value;
+      formIsValid = this.state.formdata[key].valid && formIsValid;
     }
+
     if (formIsValid) {
-      firebasePromotions.orderByChild('email').equalTo(dataToSubmit.email).once('value').then((snapshot) => {
-        if (snapshot.val() === null) {
-          firebasePromotions.push(dataToSubmit)
-          this.resetFormSuccess(true)
-        } else {
-          this.resetFormSuccess(false)
-        }
-      })
+      firebasePromotions.orderByChild('email').equalTo(dataToSubmit.email).once("value")
+        .then((snapshot) => {
+          if (snapshot.val() === null) {
+            firebasePromotions.push(dataToSubmit);
+            this.resetFormSuccess(true);
+          } else {
+            this.resetFormSuccess(false);
+          }
+        })
+      //this.resetFormSuccess()
     } else {
       this.setState({
         formError: true
@@ -97,8 +107,8 @@ export default class Enroll extends Component {
         <div className="enroll_wrapper">
           <form onSubmit={(event) => this.submitForm(event)}>
             <div className="enroll_title">
-              Enter Your Email
-            </div>
+              Enter your email
+                        </div>
             <div className="enroll_input">
               <FormField
                 id={'email'}
@@ -114,7 +124,7 @@ export default class Enroll extends Component {
               <button onClick={(event) => this.submitForm(event)}>Enroll</button>
               <div className="enroll_discl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               </div>
+                            </div>
             </div>
           </form>
         </div>

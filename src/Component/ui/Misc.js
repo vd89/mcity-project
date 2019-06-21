@@ -47,16 +47,21 @@ export const reverseArray = (actureArray) => {
 }
 
 
+
 export const validate = (element) => {
-  let error = [true, '']
-  if (element.validate.email) {
-    const valid = /\S+@\S+\.\S+/.test(element.value);
-    const message = `${!valid ? 'Must be a Valid email' : ''}`
-    error = !valid ? [valid, message] : error
-  } if (element.validate.required) {
-    const valid = element.value.trim() !== ''
-    const message = `${!valid ? 'This field is requited' : ''}`
-    error = !valid ? [valid, message] : error
-  }
-  return error
+    let error = [true,''];
+
+    if(element.validation.email){
+        const valid = /\S+@\S+\.\S+/.test(element.value);
+        const message = `${!valid ? 'Must be a valid email':''}`;
+        error = !valid ? [valid,message]: error;
+    }
+
+    if(element.validation.required){
+        const valid = element.value.trim() !== '';
+        const message = `${!valid ? 'This field is required':''}`;
+        error = !valid ? [valid,message]: error;
+    }
+
+    return error;
 }

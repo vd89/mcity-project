@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const FormField = ({ formdata, id, change }) => {
 
@@ -9,10 +9,10 @@ const FormField = ({ formdata, id, change }) => {
           formdata.validationMessage
           : null
       }
-
     </div>
     return errorMessage
   }
+
 
 
   const renderTemplate = () => {
@@ -45,4 +45,4 @@ const FormField = ({ formdata, id, change }) => {
   )
 }
 
-export default FormField
+export default FormField;
