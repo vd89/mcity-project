@@ -31,7 +31,7 @@ export default class SignIn extends Component {
         config: {
           name: 'password_input',
           type: 'password',
-          placeholder: 'Enter your password'
+          placeholder: 'Enter your currnet-password'
         },
         validation: {
           required: true,
