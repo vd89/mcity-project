@@ -10,6 +10,7 @@ import SignIn from './Component/Signin';
 import Dashboard from './Component/Admin/Dashboard';
 import PrivateRoutes from './Component/AuthRoutes/privateRoutes';
 import PublicRoutes from './Component/AuthRoutes/publicRoutes';
+import AdminMatches from './Component/Admin/Matches';
 
 
 
@@ -18,6 +19,7 @@ export default function Routes(props) {
   return (
     <Layout>
       <Switch>
+        <PrivateRoutes {...props} path="/admin_matches" exact component={AdminMatches} />
 
         <PrivateRoutes {...props} path="/dashboard" exact component={Dashboard} />
         <PublicRoutes {...props} restricted = {false} path = "/sign_in" exact component ={SignIn}/>

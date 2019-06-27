@@ -4,6 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import {firebase} from '../../../FireBase'
 
 
+
 const AdminNav = () => {
 
   const links = [
@@ -44,7 +45,7 @@ const AdminNav = () => {
     firebase.auth().signOut().then(()=>{
       console.log('Log out Successfully');
     },(error)=>{
-      console.log('Error Logging out')
+      // console.log('Error Logging out')
     })
   }
   return (
