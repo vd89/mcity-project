@@ -6,6 +6,10 @@ import { validate } from '../../ui/Misc'
 
 import { firebaseMatches, firebaseTeams, firebaseDB } from '../../../FireBase'
 import { firebaseLoop } from '../../ui/Misc'
+
+
+
+
 class AddEditMatch extends Component {
 
   state = {
@@ -225,6 +229,8 @@ class AddEditMatch extends Component {
     }
     if (!matchId) {
       // Add MAtch 
+      getTeams(false, 'Add Match')
+
     } else {
       firebaseDB.ref(`matches/${matchId}`).once('value').then((snapshot) => {
         const match = snapshot.val()
@@ -339,7 +345,7 @@ class AddEditMatch extends Component {
                   </div>
                   <div>
                     <FormField
-                      id={'resultLocal'}
+                      id={'resultAway'}
                       formdata={this.state.formdata.resultAway}
                       change={(element) => this.updateForm(element)}
                     />

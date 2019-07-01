@@ -12,6 +12,8 @@ import PrivateRoutes from './Component/AuthRoutes/privateRoutes';
 import PublicRoutes from './Component/AuthRoutes/publicRoutes';
 import AdminMatches from './Component/Admin/Matches';
 import AddEditMatch from './Component/Admin/Matches/addEditMatch';
+import AdminPlayers from './Component/Admin/Players';
+import AddEditPlayers from './Component/Admin/Players/addEditPlayers';
 
 
 
@@ -21,6 +23,11 @@ export default function Routes(props) {
     <Layout>
       <Switch>
         <PrivateRoutes {...props} path="/admin_matches" exact component={AdminMatches} />
+        <PrivateRoutes {...props} path="/admin_players" exact component={AdminPlayers} />
+        <PrivateRoutes {...props} path="/admin_players/add_players" exact component={AddEditPlayers} />
+        <PrivateRoutes {...props} path="/admin_matches/edit_match/" exact component={AddEditMatch} />
+
+        <PrivateRoutes {...props} path="/admin_players/add_players/:id" exact component={AddEditPlayers} />
         <PrivateRoutes {...props} path="/admin_matches/edit_match/:id" exact component={AddEditMatch} />
         <PrivateRoutes {...props} path="/dashboard" exact component={Dashboard} />
         <PublicRoutes {...props} restricted={false} path="/sign_in" exact component={SignIn} />

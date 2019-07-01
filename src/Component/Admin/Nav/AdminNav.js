@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ListItem from '@material-ui/core/ListItem';
-import {firebase} from '../../../FireBase'
+import { firebase } from '../../../FireBase'
 
 
 
@@ -22,7 +22,7 @@ const AdminNav = () => {
     },
     {
       title: 'Add Players',
-      linkTo: '/admin_players/add_player'
+      linkTo: '/admin_players/add_players'
     }
   ]
 
@@ -42,16 +42,16 @@ const AdminNav = () => {
   )
 
   const logoutHandler = () => {
-    firebase.auth().signOut().then(()=>{
+    firebase.auth().signOut().then(() => {
       console.log('Log out Successfully');
-    },(error)=>{
+    }, (error) => {
       // console.log('Error Logging out')
     })
   }
   return (
     <div>
       {renderItems()}
-        <ListItem button style = {style} onClick = {()=>logoutHandler()}>Log Out</ListItem>
+      <ListItem button style={style} onClick={() => logoutHandler()}>Log Out</ListItem>
     </div>
   )
 }

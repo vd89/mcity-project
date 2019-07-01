@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/app'
 import 'firebase/database'
 import 'firebase/auth'
+import 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: "AIzaSyACM6hBzfQyyxAyYmZ2-D52kW1IyCkTszA",
@@ -20,6 +21,7 @@ const firebaseDB = firebase.database()
 const firebaseMatches = firebaseDB.ref('matches')
 const firebasePromotions = firebaseDB.ref('promotions')
 const firebaseTeams = firebaseDB.ref('teams')
+const firebasePlayers = firebaseDB.ref('players')
 // firebaseDB.ref('matches').once('value').then((snapshot) =>{
 //   console.log(snapshot.val())
 // })  // see the connection is done or not 
@@ -29,6 +31,7 @@ export {
   firebaseMatches,
   firebasePromotions,
   firebaseTeams,
-  firebaseDB
+  firebaseDB,
+  firebasePlayers
 
 }
