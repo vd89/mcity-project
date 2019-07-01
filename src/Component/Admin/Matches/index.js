@@ -30,11 +30,7 @@ export default class AdminMatches extends Component {
     })
   }
 
-
-
-
-
-
+  
   render() {
     // console.log(this.state);
     return (
