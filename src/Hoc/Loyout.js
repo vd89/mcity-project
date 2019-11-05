@@ -10,6 +10,6 @@ export default function Loyout(props) {
       {props.children} 
       
       <Footer/>
-    </div>
+     </div>
   )
 }
