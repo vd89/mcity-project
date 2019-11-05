@@ -14,10 +14,6 @@ const MatchesHome = () => {
         >
           Matches
         </Tag>
-<<<<<<< HEAD
-
-=======
->>>>>>> bf56742fa6290195b6411bd397eebe880c995bdd
         <Blocks/>
 
         <Tag bck="#ffffff" size=" 22px" color="#0e1731" link={true} linkto="/the_team" >See More Matches</Tag>

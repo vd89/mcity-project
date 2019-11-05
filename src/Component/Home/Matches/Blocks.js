@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {firebaseMatches} from '../../../FireBase'
-import {firebaseLooper, reversArray} from '../../ui/Misc'
+import {firebaseLooper, reverseArray} from '../../ui/Misc'
 
 import Slide from "react-reveal/Slide";
 import MatchesBlock from '../../ui/matches_block';
@@ -13,7 +13,7 @@ export default class Blocks extends Component {
     firebaseMatches.limitToLast(6).once('value').then((snapshot)=>{
       const matches = firebaseLooper(snapshot)
       this.setState({
-        matches: reversArray(matches)
+        matches: reverseArray(matches)
       })
     })
   }
