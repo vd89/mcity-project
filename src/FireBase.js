@@ -4,7 +4,7 @@ import 'firebase/database'
 import 'firebase/auth'
 import 'firebase/storage'
 
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyACM6hBzfQyyxAyYmZ2-D52kW1IyCkTszA",
   authDomain: "mcity-386b5.firebaseapp.com",
   databaseURL: "https://mcity-386b5.firebaseio.com",
@@ -19,9 +19,9 @@ firebase.initializeApp(firebaseConfig);
 
 const firebaseDB = firebase.database()
 const firebaseMatches = firebaseDB.ref('matches')
-const firebasePromotions = firebaseDB.ref('promotions')
-const firebaseTeams = firebaseDB.ref('teams')
 const firebasePlayers = firebaseDB.ref('players')
+const firebaseTeams = firebaseDB.ref('teams')
+
 // firebaseDB.ref('matches').once('value').then((snapshot) =>{
 //   console.log(snapshot.val())
 // })  // see the connection is done or not 
@@ -29,9 +29,7 @@ const firebasePlayers = firebaseDB.ref('players')
 export {
   firebase,
   firebaseMatches,
-  firebasePromotions,
-  firebaseTeams,
   firebaseDB,
-  firebasePlayers
-
+  firebasePlayers,
+  firebaseTeams
 }
